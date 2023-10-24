@@ -16,9 +16,14 @@ class MainActivity : AppCompatActivity() {
 
         // Attach an instance of ImageDisplayFragment using factory method
         val imageDisplay = ImageDisplayFragment.newInstance(imageArray)
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragmentContainerView, imageDisplay)
-            .commit()
+
+        if (supportFragmentManager.findFragmentById(R.id.fragmentContainerView) !is ImageDisplayFragment) {
+            supportFragmentManager
+                .beginTransaction()
+                //.add(R.id.fragmentContainerView, imageDisplay)
+                .addToBackStack(null)
+                .setReorderingAllowed(true)
+                .commit()
+        }
     }
 }

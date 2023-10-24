@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
+        android:name="edu.temple.inclassactivity.ImageDisplayFragment"
         android:id="@+id/fragmentContainerView"
         android:layout_width="401dp"
         android:layout_height="732dp"
